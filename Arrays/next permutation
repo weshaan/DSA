@@ -1,0 +1,37 @@
+// https://leetcode.com/problems/next-permutation/
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        int n=nums.size();
+        int p=-1;
+        int last=nums[n-1];
+        for(int a=n-1;a>=1;a--){
+            if(nums[a]>nums[a-1]){
+                p=a-1;
+                break;
+            }
+        }
+        if(p>-1){
+            for(int a=n-1;a>p;a--){
+                if(nums[a]>nums[p]){
+                    int t=nums[a];
+                    nums[a]=nums[p];
+                    nums[p]=t;
+                    break;
+                }
+            }
+            int end=n-1;
+            int start=p+1;
+            while(end>start){
+                int t=nums[start];
+                    nums[start]=nums[end];
+                    nums[end]=t;
+                    start++;
+                    end--;
+            }
+        }
+        else {
+            sort(nums.begin(),nums.end());
+        }
+    }   
+};

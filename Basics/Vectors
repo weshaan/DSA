@@ -1,0 +1,117 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    // Creating a vector and initializing it with some elements
+    vector<int> vec = {1, 2, 3, 4, 5};
+
+    // Iterators
+    cout << "Vector elements using iterators: ";
+    for (auto it = vec.begin(); it != vec.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    cout << "Vector elements using reverse iterators: ";
+    for (auto it = vec.rbegin(); it != vec.rend(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    cout << "Vector elements using constant iterators: ";
+    for (auto it = vec.cbegin(); it != vec.cend(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    cout << "Vector elements using constant reverse iterators: ";
+    for (auto it = vec.crbegin(); it != vec.crend(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    // Capacity
+    cout << "Vector size: " << vec.size() << endl;
+    cout << "Vector max size: " << vec.max_size() << endl;
+    vec.resize(10);
+    cout << "Vector size after resize: " << vec.size() << endl;
+    cout << "Vector capacity: " << vec.capacity() << endl;
+    cout << "Vector is empty? " << (vec.empty() ? "Yes" : "No") << endl;
+    vec.reserve(20);
+    cout << "Vector capacity after reserve: " << vec.capacity() << endl;
+    vec.shrink_to_fit();
+    cout << "Vector capacity after shrink_to_fit: " << vec.capacity() << endl;
+
+    // Element Access
+    cout << "First element of the vector: " << vec.front() << endl;
+    cout << "Last element of the vector: " << vec.back() << endl;
+    cout << "Element at index 3: " << vec[3] << endl;
+    cout << "Element at index 3 using at(): " << vec.at(3) << endl;
+    int* dataPtr = vec.data();
+    cout << "Pointer to vector data: " << dataPtr << endl;
+
+    // Modifiers
+    vec.assign(5, 100);
+    cout << "Vector elements after assign(): ";
+    for (const auto& elem : vec) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    vec.push_back(200);
+    cout << "Vector elements after push_back(): ";
+    for (const auto& elem : vec) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    vec.pop_back();
+    cout << "Vector elements after pop_back(): ";
+    for (const auto& elem : vec) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    vec.insert(vec.begin() + 2, 300);
+    cout << "Vector elements after insert(): ";
+    for (const auto& elem : vec) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    vec.erase(vec.begin() + 2);
+    cout << "Vector elements after erase(): ";
+    for (const auto& elem : vec) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    vector<int> vec2 = {10, 20, 30};
+    vec.swap(vec2);
+    cout << "Vector elements after swap(): ";
+    for (const auto& elem : vec) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    vec.clear();
+    cout << "Vector size after clear(): " << vec.size() << endl;
+
+    vec.emplace(vec.begin(), 500);
+    cout << "Vector elements after emplace(): ";
+    for (const auto& elem : vec) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    vec.emplace_back(600);
+    cout << "Vector elements after emplace_back(): ";
+    for (const auto& elem : vec) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    return 0;
+}

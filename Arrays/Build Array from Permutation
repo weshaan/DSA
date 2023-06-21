@@ -1,0 +1,13 @@
+//https://leetcode.com/problems/build-array-from-permutation/
+class Solution {
+public:
+    vector<int> buildArray(vector<int>& nums) {
+        int n=nums.size();
+        int a=n-1;
+        vector<int> ans;
+        while(n){
+            n--;
+            ans.push_back(nums[nums[a-n]]);
+        }return ans;
+    }
+};

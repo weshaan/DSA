@@ -1,1 +1,1 @@
-This file contains code related to arrays
+This file contains code related to arrays.

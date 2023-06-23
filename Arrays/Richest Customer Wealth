@@ -1,0 +1,22 @@
+//https://leetcode.com/problems/richest-customer-wealth/
+#include<iostream>
+#include<vector>
+using namespace std;
+
+class Solution {
+public:
+    int maximumWealth(vector<vector<int>>& accounts) {
+        int j = accounts.size();
+        int i = accounts[i].size(); 
+        int ans = 0;
+        while (j--) {
+            for (int a = 1; a < i; a++) {
+                accounts[j][a] = accounts[j][a - 1] + accounts[j][a];
+            }
+            if (ans < accounts[j][i - 1]) {
+                ans = accounts[j][i - 1];
+            }
+        }
+        return ans;
+    }
+};

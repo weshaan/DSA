@@ -1,0 +1,47 @@
+//https://www.codechef.com/problems/MOONSOON
+#include <bits/stdc++.h>
+using namespace std;
+
+int reply(int a, int b){
+    if(a<b){
+        return a;
+    }else{
+        return b;
+    }
+}
+
+int main() {
+	int tests;
+	cin>>tests;
+	while(tests--){
+	    int n,m,h;
+	    cin>>n>>m>>h;
+	    int ans=0;
+	    int cap[n];
+	    int po[m];
+	    for(int i=0;i<n;i++)
+	    cin>>cap[i];
+	    for(int i=0;i<m;i++)
+	    cin>>po[i];
+	    sort(cap,cap+n,greater<int>());
+	    sort(po,po+m,greater<int>());
+	   // for(int i:cap)
+	   // cout<<i<<" ";
+	   // cout<<endl;
+	   // for(int i:po)
+	   // cout<<i<<" ";
+	   // cout<<endl;
+	     for(int i=0;i<m;i++){
+	         po[i]=po[i]*h;
+	     }
+	     int val=n;
+	     if(m<n)
+	     val=m;
+	     for(int i=0;i<val;i++){
+	         ans=ans+reply(cap[i],po[i]);
+	     }
+	    
+	    cout<<ans<<endl;
+	}
+	return 0;
+}

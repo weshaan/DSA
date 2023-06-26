@@ -1,0 +1,30 @@
+//https://www.codechef.com/problems/ALTTAB
+// Solution needs to be optimised from O(n^2) to O(nlogn)
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main() {
+	int n;
+	cin>>n;
+	vector<string> tabs(n);
+	for(int a=0;a<n;a++)
+	cin>>tabs[a];
+	for(int a=n-1;a>=0;a--){
+	   // cout<<a<<" ";
+	   // cout<<tabs[a];
+	    for(int i=n-1;i>=0;i--){
+	        //cout<<i<<" ";
+	        if(a==i){
+	        continue;}
+	        //cout<<i<<" ";
+	        if(tabs[a].compare(tabs[i])==0)
+	        tabs[i].erase();
+	    }int size=tabs[a].length();
+	    //cout<<size<<" ";
+	    //cout<<tabs[a];
+	    cout<<tabs[a][size-2]<<tabs[a][size-1];
+	}
+	return 0;
+}

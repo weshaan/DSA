@@ -1,0 +1,15 @@
+//https://leetcode.com/problems/matrix-diagonal-sum/
+class Solution {
+public:
+    int diagonalSum(vector<vector<int>>& mat) {
+        int col=mat.size();
+        //int row=mat[0].size();
+        int ans=0;
+        for(int a=0;a<col;a++){
+            ans=ans+mat[a][a]+mat[a][col-a-1];
+        }
+        if(col%2!=0)
+        ans=ans-mat[col/2][col/2];
+        return ans;
+    }
+};

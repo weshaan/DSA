@@ -1,0 +1,30 @@
+//https://leetcode.com/problems/find-numbers-with-even-number-of-digits/
+class Solution {
+public:
+    int findNumbers(vector<int>& nums) {
+        int n=nums.size();
+        int ct=0;
+        for(int a=0;a<n;a++){
+            if((nums[a]>9&&nums[a]<100)||(nums[a]>999&&nums[a]<10000)||(nums[a]>99999&&nums[a]<1000000))
+            ct++;
+        }return ct;
+    }
+};
+
+// class Solution {
+// public:
+//     bool containEven(int num) {
+//         if ((num >= 1 && num <= 9) || (num >= 100 && num <= 999) || (num >= 10000 && num <= 99999))
+//             return false;
+//         else
+//             return true;
+//     }
+//     int findNumbers(vector<int>& nums) {
+//         int count=0;
+//         for (int n: nums) {
+//             if (containEven(n)) count++;
+//         }
+
+//         return count;
+//     }
+// };

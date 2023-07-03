@@ -1,0 +1,40 @@
+//https://leetcode.com/problems/add-to-array-form-of-integer/
+// class Solution {
+// public:
+//     vector<int> addToArrayForm(vector<int>& num, int k) {
+//         int no=0;
+//         int n=num.size();
+//         int a=0;
+//         while(a<num.size()){
+//             no=no+num[a];
+//             no=no*10;
+//             a++;
+//         }no=no/10;
+//         no=no+k;
+//         cout<<no<<" ";
+//         n=num.size();
+//         num.erase(num.begin(),num.end());
+//         int ten=pow(10,n-1);
+//         cout<<ten;
+//         while(n--){
+//             num.push_back(no/ten);
+//             no=no%ten;
+//             ten=ten/10;
+//         }return num;
+//     }
+// };
+class Solution {
+public:
+    vector<int> addToArrayForm(vector<int>& num, int k) {
+        for(int i=num.size()-1;i>=0;i--){
+            num[i] += k;
+            k = num[i]/10;
+            num[i] %= 10;
+        }
+        while(k > 0){
+            num.insert(num.begin(), k%10);
+            k /= 10;
+        }
+        return num;
+    }
+};

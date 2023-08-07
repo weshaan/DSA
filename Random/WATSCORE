@@ -1,0 +1,25 @@
+//https://www.codechef.com/problems/WATSCORE
+#include <iostream>
+using namespace std;
+
+int main() {
+	int tests;
+	cin>>tests;
+	while(tests--){
+	    int n;
+	    cin>>n;
+	    int p[n];
+	    int s[n];
+	    for(int a=0;a<n;a++)
+	    cin>>p[a]>>s[a];
+	     int ma[12]={0};
+	    for(int a=0;a<n;a++){
+	        ma[p[a]]=max(ma[p[a]],s[a]);
+	    }
+	    int ans = 0;
+        for (int a=1;a<=8;a++) {
+            ans += ma[a];
+        }cout<<ans<<endl;
+	}
+	return 0;
+}

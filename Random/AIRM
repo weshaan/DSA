@@ -1,0 +1,24 @@
+//https://www.codechef.com/problems/AIRM
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	   int n;
+	   cin>>n;
+       int tim[1440]={0};
+       for(int a=0;a<n*2;a++){
+           int val;
+           cin>>val;
+           tim[val]++;
+       }
+    //   for(int i:tim)
+    //   cout<<i<<" ";
+    //   cout<<endl;
+        sort(tim, tim + 1440, greater<int>());
+        cout<<tim[0]<<endl;
+	}
+	return 0;
+}

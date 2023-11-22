@@ -1,0 +1,31 @@
+//https://www.codechef.com/problems/SC31
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int n;
+	    cin>>n;
+	    //if(1<=n && n<=10){
+	    string num[n];
+	    for(auto &i:num)
+	    cin>>i;
+	   // for(auto &i:num)
+	   // cout<<i<<endl;
+	    for(int a=0;a<n-1;a++){
+	        for(int b=0;b<10;b++)
+	        num[a+1][b]=(num[a+1][b]!=num[a][b])?'1':'0';
+	    }
+	    int ct=0;
+	    for(int b=0;b<10;b++)
+	    if(num[n-1][b]=='1')
+	    ct++;
+	    cout<<ct<<endl;
+	}
+    
+//}
+	return 0;
+}

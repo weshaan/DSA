@@ -1,0 +1,25 @@
+//https://www.codechef.com/problems/SPCP3
+#include <bits/stdc++.h> 
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+	    int ab,b;
+	    cin>>ab>>b;
+	    int sum=ab+b;
+	    vector<int> v;
+	    for(int a=1;a<=sum;a++){
+	        if(sum%a==0 && (b-a)>=0){
+	        v.push_back((b-a));
+	        //cout<<(b-a)<<" ";
+	        }
+	    }
+	    //cout<<endl;
+	    //sort(v.begin(), v.end());
+	    cout<<v[v.size()-1]<<endl;
+	}
+	return 0;
+}

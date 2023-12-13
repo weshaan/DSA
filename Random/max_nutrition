@@ -1,0 +1,47 @@
+//https://www.codechef.com/problems/NUTRITION
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+
+        int a[n];
+        int b[n];
+
+        for (int i=0;i<n;i++)
+            cin >> a[i];
+
+        for (inti=0;i<n;i++)
+            cin >> b[i];
+
+        multimap<int, int> ft;
+        for (inti=0;i<n;i++)
+            ft.insert(make_pair(a[i], b[i]));
+    
+    int max[101]={0};
+    
+        for (const auto& entry : ft) {
+           // cout<<entry.first<<" "<< entry.second<<endl;
+            if(max[entry.first]<entry.second){
+            max[entry.first]=entry.second;
+            
+                //cout<<entry.first<<" "<<max[entry.first]<<endl;
+            }
+        }
+        
+        int ans=0;
+        for(int i=1;i<=100;i++){
+        ans=ans+max[i];
+        
+            //cout<<max[i]<<" ";
+        }
+        cout<<ans<<endl;
+    }
+    return 0;
+}

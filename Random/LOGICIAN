@@ -1,0 +1,46 @@
+//https://www.codechef.com/problems/LOGICIAN
+#include <iostream>
+#include <boost/multiprecision/cpp_int.hpp>
+using namespace std;
+using namespace boost::multiprecision;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int n;
+	    cin>>n;
+	    cpp_int b;
+	    cin>>b;
+	    //cout<<b<<endl;
+	    int num[n];
+	    for(int a=n-1;a>=0;a--){
+	    num[a] = static_cast<int>(b % 10);
+	    b=b/10;
+	    
+	    }
+        // for(int a=0;a<n;a++)
+        // cout<<num[a];
+        // cout<<endl;
+	    int clue=2;
+	    for(int a=0;a<n;a++){
+	        if(num[a]==0)
+	        clue=0;
+	        if(clue==0){
+	            cout<<"NO"<<endl;
+	            continue;
+	        }
+	        if(a==n-1 ){
+	            cout<<"YES"<<endl;
+	            break;
+	        }
+	        if(clue==2 && num[a]==1){
+	            cout<<"IDK"<<endl;
+	        }
+	        
+	    }
+	    
+	    //cout<<endl;
+	}
+	return 0;
+}
